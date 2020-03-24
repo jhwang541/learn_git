@@ -35,13 +35,13 @@ def parameter_tuning(x_dev, y_dev, mld_builder, initial_params, param_grid_list,
                                       n_jobs=5)
         estimator_grid.fit(X=x_dev, y=y_dev, feature_name=feature_name, categorical_feature=categorical_feature)
         cv_results = estimator_grid.cv_results_
-#         print cv_results
+        # print cv_results
         results = pd.DataFrame({'params': cv_results['params'],
                                 'mean_train_score': cv_results['mean_train_score'],
                                 'mean_test_score': cv_results['mean_test_score']})
         results['interation'] = ite
         print(ite)
-        #        print param_grid
+        #  print param_grid
         ite = ite + 1
         results['drop%'] = 1 - (results['mean_test_score'] / results['mean_train_score'])
         min_threshold = max(drop_threshold, results[['drop%']].min()[0])
