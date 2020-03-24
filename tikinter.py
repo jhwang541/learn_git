@@ -61,4 +61,4 @@ if __name__ == '__main__':
     t.pack(side='left', fill='both', expand=1)
     window.mainloop()
 
-## check change
+## people change
